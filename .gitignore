@@ -1,0 +1,7 @@
+# standard
+*.pyc
+*.pyo
+__pycache__/
+
+# cookie info
+info.*

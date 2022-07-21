@@ -4,6 +4,9 @@ import json
 import requests
 import logging
 import info
+import os
+
+SECRET = os.environ.get('MY_SECRET')
 
 logging.basicConfig(filename='logger.log', encoding='utf-8', level=logging.INFO)
 
@@ -23,17 +26,19 @@ except:
 else:
     data = json.loads(response.text)    
 
-    page = int(data['pagination']['page'])
-    page_size = int(data['pagination']['pageSize'])
-    total_pages = int(data['pagination']['totalPages'])
-    total_results = int(data['pagination']['totalResults'])
+    page = data['pagination']['page']
+    page_size = data['pagination']['pageSize']
+    total_pages = data['pagination']['totalPages']
+    total_results = data['pagination']['totalResults']
 
     products = []
     products.append(data['products'])
 
-    while page < total_pages:
-        page += 1
-        params['page'] = page
+    current_page = int(page)
+
+    while page <= total_pages:
+        current_page += 1
+        params['page'] = current_page
 
         response = requests.get(
             'https://www.totalwine.com/search/api/product/categories/v2/categories/c0020/products',

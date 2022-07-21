@@ -1,0 +1,2 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.totalwine.com:443
+DEBUG:urllib3.connectionpool:https://www.totalwine.com:443 "GET /search/api/product/categories/v2/categories/c0020/products?page=1&pageSize=120&state=US-CA&shoppingMethod=INSTORE_PICKUP&userShoppingMethod=INSTORE_PICKUP&allStoresCount=true&storeId=1121&price=0-40&instock=true&batch=true&sort=expert-ratings HTTP/1.1" 200 None
